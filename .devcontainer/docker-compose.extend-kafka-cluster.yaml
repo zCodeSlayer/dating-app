@@ -3,15 +3,14 @@ version: '3.5'
 services:
   kafkacat:
     image: confluentinc/cp-kafkacat:7.1.13
-    container_name: kafkacat
     volumes:
       - "../:/home/appuser/workspace:cached"
     depends_on:
       - kafka
     command: /bin/sh -c "while sleep 1000; do :; done"
+  
   kafka1:
     image: confluentinc/cp-kafka:7.7.0
-    container_name: kafka1
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
@@ -26,9 +25,9 @@ services:
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
       KAFKA_AUTHORIZER_CLASS_NAME: "kafka.security.authorizer.AclAuthorizer"
       KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "true"
+
   kafka2:
     image: confluentinc/cp-kafka:7.7.0
-    container_name: kafka2
     environment:
       KAFKA_BROKER_ID: 2
       KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
