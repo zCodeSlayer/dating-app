@@ -20,6 +20,7 @@ services:
       ZOOKEEPER_ADMIN_ENABLE_SERVER: 'true'
     ports:
       - "2181:2181"
+      - "8081:8080"
   kafka:
     image: confluentinc/cp-kafka:7.7.0
     environment:
