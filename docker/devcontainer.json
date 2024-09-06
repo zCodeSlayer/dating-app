@@ -1,0 +1,8 @@
+{
+	"name": "dating-app",
+	"dockerComposeFile": ["docker-compose.yaml", "docker-compose.extend-kafka-cluster.yaml"],
+	"service": "kafkacat",
+	"workspaceFolder": "/home/appuser/workspace",
+	"remoteUser": "root",
+	"shutdownAction": "stopCompose"
+}
